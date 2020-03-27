@@ -1,4 +1,4 @@
-exports.seed = function(knex) {
+export function seed(knex) {
     // Deletes ALL existing entries
     return knex('users').del()
       .then(function () {
@@ -9,4 +9,4 @@ exports.seed = function(knex) {
           {id: 3, username: 'Andy', password: "test123"}
         ]);
       });
-  };
+  }

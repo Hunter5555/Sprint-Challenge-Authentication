@@ -5,7 +5,7 @@ describe("register", () => {
   //   it("should return 200", async () => {
   //     const user = await request(server)
   //       .post("/api/auth/register")
-  //       .send({ username: "cody", password: "pass" })
+  //       .send({ username: "hunter", password: "pass" })
   //       .set("Content-Type", "application/json");
 
   //     expect(user.status).toBe(200);

@@ -9,8 +9,8 @@ beforeAll(done => {
   request(server)
     .post("api/auth/login")
     .send({
-      username: "cody",
-      password: "pass"
+      username: "Drew",
+      password: "test123"
     })
     .end((err, response) => {
       token = response.body.token; // save the token!
@@ -20,12 +20,6 @@ beforeAll(done => {
 
 describe("jokes router", () => {
   it("should return 200", async () => {
-    // return request(server)
-    //   .get("/api/jokes")
-    //   .set("authorization", token)
-    //   .then(res => {
-    //     expect(res.status).toBe(200);
-    //   });
     const token = await jwt.verify(token, secret.jwtSecret);
     const users = await request(server)
       .get("/api/jokes")

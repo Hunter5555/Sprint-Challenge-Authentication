@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const secret = require("../config/secrets.js");
 
+
 router.post("/register", (req, res) => {
   // implement registration
   let userData = req.body;
@@ -12,10 +13,9 @@ router.post("/register", (req, res) => {
 
   Users.insert(userData)
     .then(user => {
-      const token = genToken(user);
+      const token = getToken(user);
       res.status(200).json({
         message: `Thanks for registering, ${userData.username}!`,
-        user,
         token: token
       });
     })
@@ -50,7 +50,7 @@ router.get("/", (req, res) => {
   });
 });
 
-function genToken(user) {
+function getToken(user) {
   const payload = {
     userId: user.id,
     username: user.username
