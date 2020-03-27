@@ -13,7 +13,7 @@ describe("register", () => {
   it("should return json", () => {
     return request(server)
       .post("/api/auth/register")
-      .send({ username: "cody", password: "pass" })
+      .send({ username: "hunter", password: "pass" })
       .then(res => {
         expect(res.type).toBe("application/json");
       });
