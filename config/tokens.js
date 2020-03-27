@@ -6,6 +6,7 @@ function getToken(users) {
     userid: users.id,
     username: users.username
   };
+  
 
   const options = {
     expiresIn: '1d'
